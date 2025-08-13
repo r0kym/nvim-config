@@ -19,28 +19,27 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
 
+    use({
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+        run = "make install_jsregexp"
+    })
+
 
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
+        branch = 'v3.x',
         requires = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
 
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-            {'saadparwaiz1/cmp_luasnip'},
             {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-nvim-lua'},
-
-            -- Snippets
-            {'L3MON4D3/LuaSnip'},
-            {'rafamadriz/friendly-snippets'},
-
         }
     }
 
@@ -60,5 +59,12 @@ return require('packer').startup(function(use)
     })
 
     use {'kaarmu/typst.vim', ft = {'typst'}}
+    use {"IndianBoy42/tree-sitter-just"}
+
+    use {'dhruvasagar/vim-table-mode'}
+
+    use {'rhysd/vim-grammarous'}
+
+    use {'slint-ui/vim-slint'}
 
 end)
